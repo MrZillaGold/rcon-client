@@ -74,7 +74,7 @@ export class RconClient extends (EventEmitter as new () => TypedEmitter<Events>)
   }
 
   async connect(host: string, port: number, password: string) {
-    if (this.socket.writable || this.socket.destroyed) {
+    if (this.socket.destroyed) {
       throw new Error("connect called twice")
     }
 
